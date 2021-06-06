@@ -55,7 +55,7 @@ ROOT_URLCONF = 'qwertyprofile.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        "DIRS": ["qwertyindex/templates/"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
