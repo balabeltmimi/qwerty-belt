@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from django.views import View
+
+from qwertyindex.forms import SubscriberForm
+from qwertyindex.models import qwertyindex
 # Create your views here.
 
 
@@ -9,6 +12,10 @@ def index(request):
 
 class IndexView(View):
     def get(self, request):
+        profile = qwertyindex.objects.get(id=1)
+
+        form = SubscriberForm()
+
 
         name = 'belt'
         github_url = 'https://github.com/balabeltmimi'
@@ -33,11 +40,12 @@ class IndexView(View):
             print(form.cleaned_data)
             print(form.cleaned_data.get('email'))
 
+
         profile = qwertyindex.objects.get(id=1)
 
-        name = 'belt'
-        github_url = 'https://github.com/balabeltmimi'
-        github_project_url = 'https://github.com/balabeltmimi/qwerty-belt'
+        name = profile.name
+        github_url = profile.github_url
+        github_project_url = profile.github_project_url
         template_name = 'base.html'
         return render(
             request,
