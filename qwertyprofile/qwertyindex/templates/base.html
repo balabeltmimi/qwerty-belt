@@ -30,13 +30,24 @@
       {% block page_content %}
         <div class="container-fluid bg-2 text-center align-self-center">
         <h3>Haiyaa! Welcome to QWERTY: Belt's World</h3>
+            <p> You can call me {{ name }} </p>
             <p> Long time no see with Django</p>
             <p> This's in the status of WIP progress</p>
             <p> Let's make this one better and make the lovely Klee greater.</p>
             <div>
-              <p><span>For further update:</span> Please follow {{ github_url}} 
+              <p><span>For further update:</span> Please follow {{ github_url}}
+              <p><span>For this project progress:</span> Please follow {{ github_project_url}} 
             </div>
         </div>
+
+      <div>
+        <p>Subscribe me:</p>
+        <form action=".", method="POST">
+          {% csrf_token %}
+          <input type="text" name:"email /">
+          {{ form.email }}
+          <button type="Submit">Subscribe</button>
+      </div>
       {% endblock %}
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
