@@ -16,9 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from qwertyindex.views import index
+from qwertyindex.views import index, IndexView
 
 urlpatterns = [
-    path('', index),
+    path('', IndexView.as_view()),
     path('admin/', admin.site.urls),
 ]
