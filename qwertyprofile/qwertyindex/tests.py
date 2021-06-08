@@ -35,3 +35,4 @@ class TestIndexView(TestCase):
         response = self.client.post('/', data=data)
         sub_email = Subscibemodel.objects.last()
         assert sub_email.email == 'thanaporn.jira@odds.team'
+        assert 'thanaporn.jira@odds.team' in str(response.content)
