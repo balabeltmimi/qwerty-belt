@@ -44,7 +44,7 @@
         <p>Subscribe me:</p>
         <form action=".", method="POST">
           {% csrf_token %}
-          <input type="text" name:"email /">
+          <input type="email">
           {{ form.email }}
           <button type="Submit">Subscribe</button>
       </div>

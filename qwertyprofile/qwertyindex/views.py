@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import View
 
 from qwertyindex.forms import SubscriberForm
-from qwertyindex.models import qwertyindex
+from qwertyindex.models import qwertyindex, Subscibemodel
 # Create your views here.
 
 
@@ -32,29 +32,25 @@ class IndexView(View):
         )
 
     def post(self, request):
-        print(request.POST)
-        print(request.POST.get('email'))
-
+        template_name = 'base.html'
         form = SubscriberForm(request.POST)
-        if form_is_valid():
-            print(form.cleaned_data)
-            print(form.cleaned_data.get('email'))
-
-
         profile = qwertyindex.objects.get(id=1)
 
-        name = profile.name
-        github_url = profile.github_url
-        github_project_url = profile.github_project_url
-        template_name = 'base.html'
+        if form.is_valid():
+            email = form.cleaned_data.get('email')
+
+            Subscibemodel.objects.create(email=email)
+            form = SubscriberForm()
+
+
         return render(
             request,
             template_name,
             {
-               'name': name,
+               'name': profile.name,
                'form': form,
-               'github_url': github_url,
-               'github_project_url': github_project_url,
+               'github_url': profile.github_url,
+               'github_project_url': profile.github_project_url,
             },
         )
 

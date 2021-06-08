@@ -2,4 +2,4 @@ from django import forms
 
 
 class SubscriberForm(forms.Form):
-    email = forms.EmailField()
+    email = forms.EmailField(required=False)
