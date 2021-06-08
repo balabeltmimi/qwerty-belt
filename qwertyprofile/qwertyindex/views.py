@@ -10,13 +10,9 @@ def index(request):
     template_name = 'base.html'
     return render(request, template_name)
 
+
 class IndexView(View):
     def get(self, request):
-        profile = qwertyindex.objects.get(id=1)
-
-        form = SubscriberForm()
-
-
         name = 'belt'
         github_url = 'https://github.com/balabeltmimi'
         github_project_url = 'https://github.com/balabeltmimi/qwerty-belt'
@@ -41,7 +37,6 @@ class IndexView(View):
 
             Subscibemodel.objects.create(email=email)
             form = SubscriberForm()
-
 
         return render(
             request,

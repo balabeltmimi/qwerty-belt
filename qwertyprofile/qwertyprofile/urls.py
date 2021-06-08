@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from qwertyindex.views import index, IndexView
+from qwertyindex.views import IndexView
 
 urlpatterns = [
     path('', IndexView.as_view()),
